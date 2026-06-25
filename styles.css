@@ -726,6 +726,8 @@ img {
 
 /* Custom Live Chat Button Override styling */
 #chat-button {
+  background-color: transparent !important;
+  border-radius: 50% !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
 }
 
