@@ -928,6 +928,15 @@ img {
   margin-bottom: 1.5rem;
 }
 
+.booking-form .form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.booking-form .form-row .form-group {
+  flex: 1;
+}
+
 .booking-form .form-group {
   margin-bottom: 1.25rem;
   display: flex;

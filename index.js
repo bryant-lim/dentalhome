@@ -49,22 +49,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle Form Submission -> Pass Name & Phone to NXLiveChat.setUserInfo
+  // Handle Form Submission -> Pass visitor details to NXLiveChat.setUserInfo
   if (bookingForm) {
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const nameInput = document.getElementById('userName');
+      const firstNameInput = document.getElementById('firstName');
+      const lastNameInput = document.getElementById('lastName');
+      const emailInput = document.getElementById('userEmail');
       const phoneInput = document.getElementById('userPhone');
 
-      const name = nameInput ? nameInput.value.trim() : '';
+      const firstName = firstNameInput ? firstNameInput.value.trim() : '';
+      const lastName = lastNameInput ? lastNameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
       const phone = phoneInput ? phoneInput.value.trim() : '';
 
-      if (name && phone) {
-        // Pass visitor name and phone number to NXLink Live Chat SDK
+      if (firstName && lastName && email) {
+        // Pass all visitor details to NXLink Live Chat SDK
         if (window.NXLiveChat && typeof window.NXLiveChat.setUserInfo === 'function') {
           window.NXLiveChat.setUserInfo({
-            name: name,
+            first_name: firstName,
+            last_name: lastName,
+            name: `${firstName} ${lastName}`,
+            email: email,
             phone: phone
           });
         }

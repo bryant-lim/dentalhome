@@ -537,17 +537,28 @@
     <div class="modal-card">
       <button class="modal-close" id="modalClose">&times;</button>
       <h3 class="modal-title">Book an Appointment</h3>
-      <p class="modal-subtitle">Enter your name and phone number to start chatting with our dental team right away!</p>
+      <p class="modal-subtitle">Please enter your information to start live chat with our dental team!</p>
       
       <form id="bookingForm" class="booking-form">
-        <div class="form-group">
-          <label for="userName">Full Name *</label>
-          <input type="text" id="userName" name="userName" placeholder="e.g. Tom Lee" required>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Tom" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Lee" required>
+          </div>
         </div>
         
         <div class="form-group">
+          <label for="userEmail">Email Address *</label>
+          <input type="email" id="userEmail" name="userEmail" placeholder="tom@example.com" required>
+        </div>
+
+        <div class="form-group">
           <label for="userPhone">Phone Number *</label>
-          <input type="tel" id="userPhone" name="userPhone" placeholder="e.g. 012-345 6789" required>
+          <input type="tel" id="userPhone" name="userPhone" placeholder="012-345 6789" required>
         </div>
         
         <button type="submit" class="btn btn-primary btn-full">Start Live Chat</button>
