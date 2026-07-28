@@ -26,6 +26,10 @@
   
   <!-- Live Chatbot Script Embed -->
   <script>
+    window.liveChatConfig = {
+      iconUrl: './assets/chat_icon.png'
+    };
+
     const script = document.createElement('script');
     script.id = 'live-chat-script';
     script.src = 'https://nxlink.nxcloud.com/chatbot/client/js/live_chat.min.js?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZW5hbnRfaWQiOiIzMTIwIiwiYXVkIjoiVmlzaXRvciBDbGllbnQiLCJjb25maWdfaWQiOiIxMTgiLCJuYW1lIjoiTGl2ZSBDaGF0IiwiaXNzIjoibnhhaS5jb20iLCJleHAiOjQ4NTgxOTY4NDIsImlhdCI6MTc4MjM1Njg0Mn0.H0iqCLSy_DA0tBdCdNZHZNWrl-7GCrxWZ--zgUAM7xY&vtime=' + new Date().getTime();

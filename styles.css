@@ -853,3 +853,15 @@ img {
     flex-direction: column;
   }
 }
+
+/* Custom NXLink Chat Widget Launcher Styling */
+#nx-chat-widget-launcher,
+.nx-chat-launcher,
+.live-chat-icon,
+[class*="nx-chat-icon"],
+div[id*="nxchat"] img {
+  background-image: url('./assets/chat_icon.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+}
+
