@@ -33,7 +33,17 @@
 
     const script = document.createElement('script');
     script.id = 'live-chat-script';
-    script.src = 'https://nxlink.nxcloud.com/chatbot/client/js/live_chat.min.js?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZW5hbnRfaWQiOiIzMTIwIiwiYXVkIjoiVmlzaXRvciBDbGllbnQiLCJjb25maWdfaWQiOiIxMTgiLCJuYW1lIjoiTGl2ZSBDaGF0IiwiaXNzIjoibnhhaS5jb20iLCJleHAiOjQ4NTgxOTY4NDIsImlhdCI6MTc4MjM1Njg0Mn0.H0iqCLSy_DA0tBdCdNZHZNWrl-7GCrxWZ--zgUAM7xY&vtime=' + new Date().getTime();
+    script.src = 'https://app.nxlink.ai/chatbot/client/js/live_chat.min.js?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZW5hbnRfaWQiOiIzMTIwIiwiYXVkIjoiVmlzaXRvciBDbGllbnQiLCJjb25maWdfaWQiOiIxMTgiLCJuYW1lIjoiTGl2ZSBDaGF0IiwiaXNzIjoibnhhaS5jb20iLCJleHAiOjQ4NTgxOTY4NDIsImlhdCI6MTc4MjM1Njg0Mn0.H0iqCLSy_DA0tBdCdNZHZNWrl-7GCrxWZ--zgUAM7xY&vtime=' + new Date().getTime();
+
+    script.onload = function() {
+      if (window.NXLiveChat && typeof window.NXLiveChat.setUserInfo === 'function') {
+        window.NXLiveChat.setUserInfo({
+          name: 'Visitor',
+          phone: '12345678901'
+        });
+      }
+    };
+
     document.head.appendChild(script);
   </script>
 </head>
@@ -537,25 +547,14 @@
     <div class="modal-card">
       <button class="modal-close" id="modalClose">&times;</button>
       <h3 class="modal-title">Book an Appointment</h3>
-      <p class="modal-subtitle">Please enter your information to start live chat with our dental team!</p>
+      <p class="modal-subtitle">Please enter your name and phone number to start chatting with our dental team!</p>
       
       <form id="bookingForm" class="booking-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="firstName">First Name *</label>
-            <input type="text" id="firstName" name="firstName" placeholder="Tom" required>
-          </div>
-          <div class="form-group">
-            <label for="lastName">Last Name *</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Lee" required>
-          </div>
+        <div class="form-group">
+          <label for="userName">Full Name *</label>
+          <input type="text" id="userName" name="userName" placeholder="Tom Lee" required>
         </div>
         
-        <div class="form-group">
-          <label for="userEmail">Email Address *</label>
-          <input type="email" id="userEmail" name="userEmail" placeholder="tom@example.com" required>
-        </div>
-
         <div class="form-group">
           <label for="userPhone">Phone Number *</label>
           <input type="tel" id="userPhone" name="userPhone" placeholder="012-345 6789" required>
