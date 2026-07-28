@@ -34,16 +34,6 @@
     const script = document.createElement('script');
     script.id = 'live-chat-script';
     script.src = 'https://app.nxlink.ai/chatbot/client/js/live_chat.min.js?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZW5hbnRfaWQiOiIzMTIwIiwiYXVkIjoiVmlzaXRvciBDbGllbnQiLCJjb25maWdfaWQiOiIxMTgiLCJuYW1lIjoiTGl2ZSBDaGF0IiwiaXNzIjoibnhhaS5jb20iLCJleHAiOjQ4NTgxOTY4NDIsImlhdCI6MTc4MjM1Njg0Mn0.H0iqCLSy_DA0tBdCdNZHZNWrl-7GCrxWZ--zgUAM7xY&vtime=' + new Date().getTime();
-
-    script.onload = function() {
-      if (window.NXLiveChat && typeof window.NXLiveChat.setUserInfo === 'function') {
-        window.NXLiveChat.setUserInfo({
-          name: 'Visitor',
-          phone: '12345678901'
-        });
-      }
-    };
-
     document.head.appendChild(script);
   </script>
 </head>
