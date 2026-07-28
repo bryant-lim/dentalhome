@@ -855,13 +855,15 @@ img {
 }
 
 /* Custom NXLink Chat Widget Launcher Styling */
+#chat-button,
 #nx-chat-widget-launcher,
 .nx-chat-launcher,
 .live-chat-icon,
-[class*="nx-chat-icon"],
-div[id*="nxchat"] img {
+[class*="nx-chat-icon"] {
   background-image: url('./assets/chat_icon.png') !important;
-  background-size: contain !important;
+  background-size: cover !important;
+  background-position: center !important;
   background-repeat: no-repeat !important;
 }
+
 
