@@ -20,74 +20,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Modal & Chatbot Integration ---
-  const bookingModal = document.getElementById('bookingModal');
-  const modalClose = document.getElementById('modalClose');
-  const bookingForm = document.getElementById('bookingForm');
+  // --- Chatbot Trigger Integration ---
   const ctaButtons = document.querySelectorAll('.cta-btn');
-
-  // Open Lead Modal when CTA button is clicked
+  
   ctaButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      if (bookingModal) {
-        bookingModal.classList.add('active');
+      
+      const chatButton = document.getElementById('chat-button');
+      
+      if (chatButton) {
+        chatButton.click();
+      } else if (window.NXLiveChat && typeof window.NXLiveChat.showChatBtn === 'function') {
+        window.NXLiveChat.showChatBtn();
+        setTimeout(() => {
+          const reFoundBtn = document.getElementById('chat-button');
+          if (reFoundBtn) reFoundBtn.click();
+        }, 100);
       }
     });
   });
-
-  // Close Modal
-  if (modalClose && bookingModal) {
-    modalClose.addEventListener('click', () => {
-      bookingModal.classList.remove('active');
-    });
-
-    bookingModal.addEventListener('click', (e) => {
-      if (e.target === bookingModal) {
-        bookingModal.classList.remove('active');
-      }
-    });
-  }
-
-  // Handle Form Submission -> Pass name & phone to NXLiveChat.setUserInfo
-  if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const nameInput = document.getElementById('userName');
-      const phoneInput = document.getElementById('userPhone');
-
-      const name = nameInput ? nameInput.value.trim() : '';
-      const phone = phoneInput ? phoneInput.value.trim() : '';
-
-      if (name && phone) {
-        // Pass name & phone to NXLink Live Chat SDK
-        if (window.NXLiveChat && typeof window.NXLiveChat.setUserInfo === 'function') {
-          window.NXLiveChat.setUserInfo({
-            name: name,
-            phone: phone
-          });
-        }
-
-        // Close modal after setting user info
-        if (bookingModal) {
-          bookingModal.classList.remove('active');
-        }
-
-        // Open chat window
-        const chatButton = document.getElementById('chat-button');
-        if (chatButton) {
-          chatButton.click();
-        } else if (window.NXLiveChat && typeof window.NXLiveChat.showChatBtn === 'function') {
-          window.NXLiveChat.showChatBtn();
-          setTimeout(() => {
-            const reFoundBtn = document.getElementById('chat-button');
-            if (reFoundBtn) reFoundBtn.click();
-          }, 100);
-        }
-      }
-    });
-  }
 
 });
 
