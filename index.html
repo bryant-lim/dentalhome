@@ -35,22 +35,6 @@
     script.src = 'https://app.nxlink.ai/chatbot/client/js/live_chat.min.js?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZW5hbnRfaWQiOiIzMTIwIiwiYXVkIjoiVmlzaXRvciBDbGllbnQiLCJjb25maWdfaWQiOiIxMTgiLCJuYW1lIjoiTGl2ZSBDaGF0IiwiaXNzIjoibnhhaS5jb20iLCJleHAiOjQ4NTgxOTY4NDIsImlhdCI6MTc4MjM1Njg0Mn0.H0iqCLSy_DA0tBdCdNZHZNWrl-7GCrxWZ--zgUAM7xY&vtime=' + new Date().getTime();
     document.head.appendChild(script);
   </script>
-
-  <script>
-    window.onload = function() {
-      if (window.NXLiveChat) { // Check if the NXLiveChat object is loaded
-        window.NXLiveChat.showChatBtn(); // Show the chat button
-
-        // At least one of email, phone, or customer_id is required; name is mandatory
-        window.NXLiveChat.setUserInfo({
-          name: 'Tom Lee',                // User name (required)
-          phone: '12345678901',        // User phone (medium priority)
-        });
-
-        window.NXLiveChat.hideChatBtn(); // Optionally hide the chat button
-      }
-    };
-  </script>
 </head>
 <body>
 
